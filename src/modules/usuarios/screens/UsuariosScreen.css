@@ -1,0 +1,63 @@
+.usuarios {
+  padding: var(--spacing-8);
+  max-width: 1200px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.page-header h1 {
+  font-size: var(--font-size-3xl);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Reutilizamos estilos de tabla y modal del módulo de incidencias */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: var(--color-bg-tertiary);
+  border-bottom: 2px solid var(--color-border-medium);
+}
+
+.data-table th, .data-table td {
+  padding: var(--spacing-4);
+  text-align: left;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.btn-icon {
+  padding: var(--spacing-2);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.modal { background: var(--color-bg-secondary); border-radius: var(--radius-xl); width: 90%; max-width: 600px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+
+@media (max-width: 768px) {
+  .usuarios { padding: var(--spacing-4); }
+  .form-row { grid-template-columns: 1fr; }
+  .modal { width: 95%; }
+}
