@@ -15,6 +15,7 @@ const ConfigAccesibilidadScreen = lazy(() => import('../modules/configuracion/sc
 const IncidenciasScreen = lazy(() => import('../modules/incidencias/screens/IncidenciasScreen'));
 const SoporteScreen = lazy(() => import('../modules/soporte/screens/SoporteScreen'));
 const UsuariosScreen = lazy(() => import('../modules/usuarios/screens/UsuariosScreen'));
+const LugaresScreen = lazy(() => import('../modules/lugares/screens/LugaresScreen'));
 
 export const routes = [
   {
@@ -53,6 +54,12 @@ export const routes = [
     component: UsuariosScreen,
     private: true,
     title: 'Usuarios',
+  },
+  {
+    path: routePaths.LUGARES,
+    component: LugaresScreen,
+    private: true,
+    title: 'Lugares',
   },
   {
     path: routePaths.SOPORTE,

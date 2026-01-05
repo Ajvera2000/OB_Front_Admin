@@ -1,0 +1,49 @@
+.lugares {
+  padding: var(--spacing-8);
+  max-width: 1200px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-right: var(--spacing-3);
+}
+
+.tab {
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-light);
+  cursor: pointer;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));
+  color: white;
+}
+
+.data-table thead {
+  background: var(--color-bg-tertiary);
+  border-bottom: 2px solid var(--color-border-medium);
+}
+
+.data-table th, .data-table td {
+  padding: var(--spacing-4);
+}
+
+.actions { display: flex; gap: var(--spacing-2); }
+
+.btn-icon { padding: var(--spacing-2); }
+
+@media (max-width: 768px) {
+  .lugares { padding: var(--spacing-4); }
+}

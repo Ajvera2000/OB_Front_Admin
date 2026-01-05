@@ -55,6 +55,14 @@ export default function Layout() {
               <span>Usuarios</span>
             </NavLink>
 
+            <NavLink to="/lugares" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+              <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.5 1.5 0 01-2.828 0l-4.243-4.243A6 6 0 1117.657 16.657z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11a2 2 0 100-4 2 2 0 000 4z" />
+              </svg>
+              <span>Lugares</span>
+            </NavLink>
+
             <NavLink to="/soporte" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -66,7 +74,7 @@ export default function Layout() {
           <div className="nav-section">
             <p className="nav-section-title">Configuración Global</p>
 
-            <NavLink to="/configuracion/accesibilidad" className="nav-item">
+            <NavLink to="/configuracion/accesibilidad" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -74,14 +82,14 @@ export default function Layout() {
               <span>Accesibilidad</span>
             </NavLink>
 
-            <NavLink to="/configuracion/navegacion" className="nav-item">
+            <NavLink to="/configuracion/navegacion" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
               <span>Navegación</span>
             </NavLink>
 
-            <NavLink to="/configuracion/privacidad" className="nav-item">
+            <NavLink to="/configuracion/privacidad" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>

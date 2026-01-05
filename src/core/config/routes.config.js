@@ -28,6 +28,10 @@ export const routePaths = {
   USUARIOS: '/usuarios',
   USUARIO_DETAIL: '/usuarios/:id',
 
+  // Lugares (favoritos, zonas seguras, puntos críticos)
+  LUGARES: '/lugares',
+  LUGAR_DETAIL: '/lugares/:id',
+
   // Errores
   NOT_FOUND: '/404',
   UNAUTHORIZED: '/401',
@@ -42,6 +46,7 @@ export const routeNames = {
   INCIDENCIAS: 'Incidencias',
   SOPORTE: 'Soporte',
   USUARIOS: 'Usuarios',
+  LUGARES: 'Lugares',
 };
 
 export default routePaths;

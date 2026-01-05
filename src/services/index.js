@@ -12,6 +12,7 @@ import configuracionService from '../modules/configuracion/services/configuracio
 import incidenciasService from '../modules/incidencias/services/incidenciasService';
 import soporteService from '../modules/soporte/services/soporteService';
 import usuariosService from '../modules/usuarios/services/usuariosService';
+import lugaresService from '../modules/lugares/services/lugaresService';
 
 // PASO 2: Exportar servicios completos
 export { http };
@@ -71,6 +72,17 @@ export const {
 
 export { usuariosService as UsuariosService }; 
 
+// Lugares
+export const {
+  getLugares,
+  getLugar,
+  createLugar,
+  updateLugar,
+  deleteLugar
+} = lugaresService;
+
+export { lugaresService as LugaresService }; 
+
 /**
  * Objeto con todos los servicios
  * Uso: import services from '@services'; services.dashboardService.getMetricsResumen()
@@ -82,4 +94,5 @@ export default {
   incidencias: incidenciasService,
   soporte: soporteService,
   usuarios: usuariosService,
+  lugares: lugaresService,
 };

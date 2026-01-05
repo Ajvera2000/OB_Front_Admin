@@ -14,6 +14,7 @@ import DashboardScreen from '@modules/dashboard/screens/DashboardScreen'
 import IncidenciasScreen from '@modules/incidencias/screens/IncidenciasScreen'
 import SoporteScreen from '@modules/soporte/screens/SoporteScreen'
 import UsuariosScreen from '@modules/usuarios/screens/UsuariosScreen'
+import LugaresScreen from '@modules/lugares/screens/LugaresScreen'
 import ConfigAccesibilidadScreen from '@modules/configuracion/screens/ConfigAccesibilidadScreen'
 import ConfigNavegacionScreen from '@modules/configuracion/screens/ConfigNavegacionScreen'
 import ConfigPrivacidadScreen from '@modules/configuracion/screens/ConfigPrivacidadScreen'
@@ -31,6 +32,7 @@ function App() {
           {/* Gestión - David Maldonado */}
           <Route path="incidencias" element={<IncidenciasScreen />} />
           <Route path="usuarios" element={<UsuariosScreen />} />
+          <Route path="lugares" element={<LugaresScreen />} />
           <Route path="soporte" element={<SoporteScreen />} />
 
           {/* Configuración Global - Josselyn Moposita */}
