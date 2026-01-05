@@ -282,7 +282,12 @@ En Configuración de Navegación:
 
 | Variable | Descripción | Valor por defecto |
 |----------|-------------|-------------------|
-| `VITE_API_URL` | URL del backend principal | `http://localhost:8888` |
+| `VITE_API_BASE` | URL del backend principal usada por el cliente HTTP | `http://localhost:8888` |
+
+**Notas de integración:**
+- El frontend envía cookies de sesión al backend. Asegúrate de que el backend tenga `ALLOWED_ORIGINS` incluyendo la URL del frontend (ej. `http://localhost:5174`).
+- Para autenticación basada en cookies (cross-site): el backend debe usar `sameSite='none'` y `secure=true` en producción (HTTPS). En desarrollo `sameSite='lax'` funciona cuando front y back están en orígenes distintos.
+- Si prefieres evitar cookies, puedes adaptar el backend para emitir tokens y almacenar en el cliente (pero la app actual espera sesiones en cookies).
 
 ---
 
