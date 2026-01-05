@@ -7,29 +7,21 @@ import http from '../../../core/services/httpClient';
 
 export const lugaresService = {
   /**
-   * Obtiene lugares, opcionalmente filtrados por tipo
-   * @param {object} filters - { tipo: 'favorito'|'zona_segura'|'punto_critico', ... }
+   * Obtiene lugares (backend: /lugares/lista) - acepta params pero el backend puede ignorarlos
    */
   getLugares: async (filters = {}) => {
-    const params = new URLSearchParams(filters);
-    return http.get(`/api/admin/lugares?${params}`);
+    const params = new URLSearchParams(filters).toString();
+    const url = params ? `/lugares/lista?${params}` : '/lugares/lista';
+    return http.get(url);
   },
 
-  getLugar: async (id) => {
-    return http.get(`/api/admin/lugares/${id}`);
-  },
+  getLugar: async (id) => http.get(`/lugares/obtener/${id}`),
 
-  createLugar: async (data) => {
-    return http.post('/api/admin/lugares', data);
-  },
+  createLugar: async (data) => http.post('/lugares/crear', data),
 
-  updateLugar: async (id, data) => {
-    return http.put(`/api/admin/lugares/${id}`, data);
-  },
+  updateLugar: async (id, data) => http.put(`/lugares/actualizar/${id}`, data),
 
-  deleteLugar: async (id) => {
-    return http.delete(`/api/admin/lugares/${id}`);
-  },
+  deleteLugar: async (id) => http.delete(`/lugares/eliminar/${id}`),
 };
 
 export default lugaresService;

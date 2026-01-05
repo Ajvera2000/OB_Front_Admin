@@ -1,22 +1,22 @@
 /**
  * HTTP Client Base - Configuración centralizada de fetch
- *
- * @description Cliente HTTP base con manejo de errores
+ * Incluye envío de cookies (credentials: 'include') y normalización de respuestas
  * @author OpenBlind Team
  */
 
-const API_URL = 'http://localhost:8888';
+const API_URL = import.meta.env.VITE_API_BASE || 'http://localhost:8888';
 
 /**
- * Realiza una petición HTTP con manejo de errores
- * @param {string} endpoint - Endpoint de la API
- * @param {object} options - Opciones de fetch
- * @returns {Promise<object>} Respuesta de la API
+ * Realiza una petición HTTP con manejo de errores y normalización
  */
 export async function httpClient(endpoint, options = {}) {
   const url = `${API_URL}${endpoint}`;
 
+  const method = (options.method || 'GET').toUpperCase();
+
   const defaultOptions = {
+    method,
+    credentials: options.credentials || 'include',
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
@@ -24,15 +24,27 @@ export async function httpClient(endpoint, options = {}) {
     ...options,
   };
 
+  // Evitar enviar body en GET
+  if (method === 'GET' && defaultOptions.body) delete defaultOptions.body;
+
   try {
     const response = await fetch(url, defaultOptions);
+    const data = await (async () => {
+      try { return await response.json(); } catch { return null; }
+    })();
 
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || 'Error en la petición');
+      const message = (data && (data.message || data.errors)) || response.statusText || 'Error en la petición';
+      const err = { message, status: response.status, data };
+      throw err;
     }
 
-    return await response.json();
+    // Normalizar formato: soporte res.apiResponse ({ success, message, data }) y respuestas directas
+    if (data && (data.hasOwnProperty('success') || data.hasOwnProperty('data'))) {
+      return data;
+    }
+
+    return { success: true, data };
   } catch (error) {
     console.error(`API Error (${endpoint}):`, error);
     throw error;
@@ -49,18 +61,21 @@ export const http = {
     ...options,
     method: 'POST',
     body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
   }),
 
   put: (endpoint, data, options = {}) => httpClient(endpoint, {
     ...options,
     method: 'PUT',
     body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
   }),
 
   patch: (endpoint, data, options = {}) => httpClient(endpoint, {
     ...options,
     method: 'PATCH',
     body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
   }),
 
   delete: (endpoint, options = {}) => httpClient(endpoint, {

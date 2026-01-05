@@ -7,25 +7,24 @@ import http from '../../../core/services/httpClient';
 
 export const usuariosService = {
   getUsuarios: async (filters = {}) => {
-    const params = new URLSearchParams(filters);
-    return http.get(`/api/admin/usuarios?${params}`);
+    // Si hay query 'q' usar el endpoint de búsqueda del backend
+    if (filters && filters.q) {
+      const params = new URLSearchParams({ q: filters.q }).toString();
+      return http.get(`/usuarios/buscar?${params}`);
+    }
+
+    const params = new URLSearchParams(filters).toString();
+    const url = params ? `/usuarios/lista?${params}` : '/usuarios/lista';
+    return http.get(url);
   },
 
-  getUsuario: async (id) => {
-    return http.get(`/api/admin/usuarios/${id}`);
-  },
+  getUsuario: async (id) => http.get(`/usuarios/obtener/${id}`),
 
-  createUsuario: async (data) => {
-    return http.post('/api/admin/usuarios', data);
-  },
+  createUsuario: async (data) => http.post('/usuarios/crear', data),
 
-  updateUsuario: async (id, data) => {
-    return http.put(`/api/admin/usuarios/${id}`, data);
-  },
+  updateUsuario: async (id, data) => http.put(`/usuarios/actualizar/${id}`, data),
 
-  deleteUsuario: async (id) => {
-    return http.delete(`/api/admin/usuarios/${id}`);
-  },
+  deleteUsuario: async (id) => http.delete(`/usuarios/eliminar/${id}`),
 };
 
 export default usuariosService;
