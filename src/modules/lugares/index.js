@@ -1,5 +1,6 @@
 /**
  * Módulo Lugares - Exportaciones centralizadas
+ * @author Vera Bravo Angelo Joel
  */
 
 export { default as LugaresScreen } from './screens/LugaresScreen';

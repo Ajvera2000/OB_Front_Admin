@@ -1,5 +1,6 @@
 /**
  * Módulo Usuarios - Exportaciones centralizadas
+ * @author Vera Bravo Angelo Joel
  */
 
 // Screens

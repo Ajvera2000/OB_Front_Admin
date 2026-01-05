@@ -1,7 +1,6 @@
 /**
  * Usuarios Service - Gestión de usuarios (CRUD)
- *
- * @description Servicio para gestionar usuarios en el sistema
+ * @author Vera Bravo Angelo Joel
  */
 
 import http from '../../../core/services/httpClient';

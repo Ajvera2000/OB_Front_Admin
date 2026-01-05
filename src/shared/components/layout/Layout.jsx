@@ -40,13 +40,7 @@ export default function Layout() {
           </div>
 
           <div className="nav-section">
-            <p className="nav-section-title">Gestión (David Maldonado)</p>
-            <NavLink to="/incidencias" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
-              <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <span>Incidencias</span>
-            </NavLink>
+            <p className="nav-section-title">Gestión (Angelo Vera)</p>
 
             <NavLink to="/usuarios" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,6 +55,16 @@ export default function Layout() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11a2 2 0 100-4 2 2 0 000 4z" />
               </svg>
               <span>Lugares</span>
+            </NavLink>
+          </div>
+
+          <div className="nav-section">
+            <p className="nav-section-title">Gestión (David Maldonado)</p>
+            <NavLink to="/incidencias" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+              <svg className="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>Incidencias</span>
             </NavLink>
 
             <NavLink to="/soporte" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>

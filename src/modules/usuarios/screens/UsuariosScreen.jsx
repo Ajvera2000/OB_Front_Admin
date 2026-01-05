@@ -1,5 +1,6 @@
 /**
  * Usuarios Screen - Gestión de Usuarios (CRUD)
+ * @author Vera Bravo Angelo Joel
  */
 
 import { useState, useEffect } from 'react';

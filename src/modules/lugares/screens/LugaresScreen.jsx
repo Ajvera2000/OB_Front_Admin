@@ -1,5 +1,6 @@
 /**
  * Lugares Screen - Gestión de Lugares (Favoritos, Zonas Seguras, Puntos Críticos)
+ * @author Vera Bravo Angelo Joel
  */
 
 import { useState, useEffect } from 'react';

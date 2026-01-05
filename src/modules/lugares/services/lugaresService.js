@@ -1,5 +1,6 @@
 /**
  * Lugares Service - Gestión de lugares (favoritos, zonas seguras, puntos críticos)
+ * @author Vera Bravo Angelo Joel
  */
 
 import http from '../../../core/services/httpClient';
